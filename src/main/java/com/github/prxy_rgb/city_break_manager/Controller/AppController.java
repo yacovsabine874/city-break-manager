@@ -3,8 +3,6 @@ package com.github.prxy_rgb.city_break_manager.Controller;
 import com.github.prxy_rgb.city_break_manager.Service.AppService;
 import com.github.prxy_rgb.city_break_manager.Entity.City;
 import com.github.prxy_rgb.city_break_manager.Entity.Trip;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/")
 public class AppController {
-    @Autowired
-    private AppService service;
+
+    private final AppService service;
+
+    public AppController(AppService service) {
+        this.service = service;
+    }
 
     @GetMapping("cities")
     public List<City> getAllCities() {
@@ -37,8 +39,9 @@ public class AppController {
     }
 
     @DeleteMapping("cities/{id}")
-    public void deleteCity(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCity(@PathVariable Long id) {
         service.deleteCity(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("trips")
@@ -62,7 +65,8 @@ public class AppController {
     }
 
     @DeleteMapping("trips/{id}")
-    public void deleteTrip(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTrip(@PathVariable Long id) {
         service.deleteTrip(id);
+        return ResponseEntity.noContent().build();
     }
 }
