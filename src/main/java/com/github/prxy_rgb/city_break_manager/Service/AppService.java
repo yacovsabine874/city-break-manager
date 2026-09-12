@@ -2,19 +2,22 @@ package com.github.prxy_rgb.city_break_manager.Service;
 
 import com.github.prxy_rgb.city_break_manager.Entity.City;
 import com.github.prxy_rgb.city_break_manager.Entity.Trip;
+import com.github.prxy_rgb.city_break_manager.Exception.ResourceNotFoundException;
 import com.github.prxy_rgb.city_break_manager.Repository.CityRepository;
 import com.github.prxy_rgb.city_break_manager.Repository.TripRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class AppService {
-    @Autowired
-    private CityRepository cityRepository;
-    @Autowired
-    private TripRepository tripRepository;
+    private final CityRepository cityRepository;
+    private final TripRepository tripRepository;
+
+    public AppService(CityRepository cityRepository, TripRepository tripRepository) {
+        this.cityRepository = cityRepository;
+        this.tripRepository = tripRepository;
+    }
 
     public List<City> getAllCities() {
         return cityRepository.findAll();
@@ -25,11 +28,11 @@ public class AppService {
     }
 
     public City getCityById(Long id) {
-        return cityRepository.findById(id).orElseThrow(() -> new RuntimeException("City not found"));
+        return cityRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("City not found with id: " + id));
     }
 
     public Trip getTripById(Long id) {
-        return tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Trip not found"));
+        return tripRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Trip not found with id: " + id));
     }
 
     public City createCity(City city) {
@@ -46,7 +49,7 @@ public class AppService {
             existingCity.setCountry(city.getCountry());
             existingCity.setDetails(city.getDetails());
             return cityRepository.save(existingCity);
-        }).orElseThrow(() -> new RuntimeException("City not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("City not found with id: " + id));
     }
 
     public Trip updateTrip(Long id, Trip trip) {
@@ -55,14 +58,16 @@ public class AppService {
             existingTrip.setStartDate(trip.getStartDate());
             existingTrip.setEndDate(trip.getEndDate());
             return tripRepository.save(existingTrip);
-        }).orElseThrow(() -> new RuntimeException("Trip not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("Trip not found with id: " + id));
     }
 
     public void deleteCity(Long id) {
+        if (!cityRepository.existsById(id)) throw new ResourceNotFoundException("City not found with id: " + id);
         cityRepository.deleteById(id);
     }
 
     public void deleteTrip(Long id) {
+        if (!tripRepository.existsById(id)) throw new ResourceNotFoundException("Trip not found with id: " + id);
         tripRepository.deleteById(id);
     }
 }
